@@ -25,9 +25,9 @@ export default function Carousel({ data }) {
         }
     }
     return (
-        <div className="lg:w-2/3 lg:h-[250px] flex justify-center items-center">
+        <div className="md:w-2/3 md:h-[250px] flex justify-center items-center">
             <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={prev_slide} />
-            <div className="lg:w-4/5 flex flex-wrap justify-center">
+            <div className="md:w-4/5 flex flex-wrap justify-center">
                 {data.slice(counter,counterTo).map((each,index) => <CardPolaroid key={index} src={each.photo} alt={each.alt} text={each.city} />)}
             </div>
             <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5" onClick={next_slide} />
