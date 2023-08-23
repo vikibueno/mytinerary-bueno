@@ -1,16 +1,17 @@
 import  { Link as Anchor } from "react-router-dom"
 
-export default function Display({ options }) {
+export default function Label({ options }) {
   return (
-    <div className="w-[230px] h-[500px] flex flex-col bg-gray-200 absolute top-[40px] left-[100px] gap-[8px] "> 
+    <div className="hidden md:flex ms-5 runded-x1 items-center gap-3"> 
         {options.map(each=><Anchor key={each.to} to={each.to}>{each.title}</Anchor>)}
-        {/* <button class="font-semibold w-[100px] h-[35px] flex gap-1 items-center p-2  rounded-[10px] bg-[#4F46E5] hover:bg-blue-700 text-white text-[18px] leading-[31.92px]">
+        <button class="bg-transparent flex gap-1 hover:bg-blue-500
+        text-blue-700 font-semibold hover:text-white py-2 px-4 
+        border border-blue-500 hover:border-transparent rounded-[10px]">
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-5 h-5">
             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
           </svg>
-          Login
-        </button> */}
-        <p>Login</p>
+          <span>Login</span>
+        </button>
     </div>
  
   )
