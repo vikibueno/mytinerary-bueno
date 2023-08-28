@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 
 export default function MainLayout({ children }) {
   return (
-    <div className="w-full min-h-screen flex flex-col justify-between items-center">
+    <div className="container mx-auto bg-orange-400 bg-cover">
       <NavBar />
       <Outlet />
       <Footer />

@@ -2,8 +2,10 @@ import  { Link as Anchor } from "react-router-dom"
 
 export default function Label({ options }) {
   return (
-    <div className="hidden md:flex ms-5 runded-x1 items-center gap-3"> 
-        {options.map(each=><Anchor key={each.to} to={each.to}>{each.title}</Anchor>)}
+    <div className="w-full block gap-3 font-semibold text-white flex-grow lg:flex lg:items-center lg:w-auto hidden"> 
+        {options.map(each=><Anchor 
+        className="hover:border-b-2 hover:border-gray-200 transition duration-700 ease-in" key={each.to} to={each.to}>
+          {each.title}</Anchor>)}
         <button class="bg-transparent flex gap-1 hover:bg-blue-500
         text-blue-700 font-semibold hover:text-white py-2 px-4 
         border border-blue-500 hover:border-transparent rounded-[10px]">

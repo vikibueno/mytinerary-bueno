@@ -7,9 +7,15 @@ module.exports = {
       './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-      extend: {},
+      extend: {
+        backgroundImage: {
+          'rio': "url('../public/img/america/rioDeJaneiro.jpg')",
+          'bariloche':"url('../public/img/background-bariloche.jpg')"
+        },
+      },
       fontFamily: {
         'sans': ['Segoe UI', ...defaultTheme.fontFamily.sans],
+        'rale': ['Raleway']
       },
   },
   variants: {},
