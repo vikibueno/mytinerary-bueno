@@ -1,6 +1,9 @@
 import { useState,useEffect } from "react"
 import Carousel from "../components/Carousel"
 import axios from "axios"
+import apiUrl from '../apiUrl'
+import  { Link as Anchor } from "react-router-dom"
+
 
 export default function Home() {
 
@@ -9,8 +12,9 @@ export default function Home() {
     const titleMain = "Find your perfect trip, designed by insiders who know and love their cities!"
     useEffect(
         ()=>{
-            axios('/data.json')
-                .then(res=>setData(res.data))
+            axios(apiUrl+'cities/carousel')
+                //.then(res=>console.log(res.data.data_carousel))
+                .then(res=>setData(res.data.data_carousel))
                 .catch(err=>console.log(err))
         },
         []
