@@ -29,8 +29,10 @@ export default function Home() {
               With an easy-to-use interface and a host of itinerary options, 
               planning your next trip has never been easier.
             </p> 
-            <button class="w-1/5 justify-center rounded-[8px] bg-[#4F46E5] hover:bg-blue-700 text-white text-sm  font-semibold
-            bg-green-500">View More</button>  
+          <Anchor to={'/cities'}>
+          <button class="w-1/5 justify-center rounded-[8px] bg-[#4F46E5] hover:bg-blue-700 text-white text-sm  font-semibold
+            bg-green-500">View More</button> 
+          </Anchor>
         </div>
         <div className="w-full"> <Carousel data={data} />    </div>
 

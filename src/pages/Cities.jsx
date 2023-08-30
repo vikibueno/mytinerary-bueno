@@ -1,6 +1,7 @@
 import { useState,useEffect,useRef } from "react"
 import axios from "axios"
 import apiUrl from "../apiUrl"
+import CardCity from "../components/CardCity"
 
 export default function Cities() {
   const [cities,setCities] = useState([])
@@ -23,7 +24,7 @@ export default function Cities() {
   return (
     <>
     <input ref={text} type="text" name="text" id="text" onKeyUp={handleFilter} />
-     {cities.map(each=><p key={each._id}>{each.city}</p>)}
+     {cities.map(each=><CardCity key={each._id} src={each.photo} alt={each._id} text={each.city} id={each._id} />)}
       
     </>
   )
