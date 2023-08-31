@@ -4,7 +4,7 @@ import { Outlet } from "react-router-dom"
 
 export default function MainLayout({ children }) {
   return (
-    <div className="container  bg-orange-400 bg-cover">
+    <div className="container flex flex-col min-h-screen bg-orange-400 bg-cover">
       <NavBar />
       <Outlet />
       <Footer />

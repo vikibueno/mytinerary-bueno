@@ -34,7 +34,7 @@ export default function Form() {
     }
     
     return (
-        <form className="flex flex-col justify-evenly w-4/5 items-center">
+        <form className="flex flex-col flex-grow mx-auto justify-evenly w-4/5 items-center">
             <input ref={name} type="text" className="w-4/5 py-4 text-center" name="name" id="name" placeholder="Type Name" />
             <input ref={lastName} type="text" className="w-4/5 py-4 text-center" name="lastName" id="lastName" placeholder="Type lastName" />
             <input ref={photo} type="text" className="w-4/5 py-4 text-center" name="photo" id="photo" placeholder="Type Photo" />
