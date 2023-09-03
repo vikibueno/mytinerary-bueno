@@ -9,8 +9,8 @@ module.exports = {
   theme: {
       extend: {
         backgroundImage: {
-          'rio': "url('../public/img/america/rioDeJaneiro.jpg')",
-          'bariloche':"url('../public/img/background-bariloche.jpg')"
+          'cities':"url('../public/img/bg-cities.jpg')",
+          'mountain':"url('../public/img/mountain2.jpg')"
         },
       },
       fontFamily: {

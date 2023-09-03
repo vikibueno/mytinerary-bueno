@@ -25,9 +25,9 @@ export default function Carousel({ data }) {
         }
     }
     return (
-        <div className="flex flex-col">
-            <p className="text-center font-semibold m-4">Popular Mytineraries</p>
-            <div className="flex flex-wrap justify-center">
+        <div className="flex flex-col gap-2 backdrop-opacity-10 backdrop-invert bg-white/30">
+            <p className="text-center font-semibold">Popular Mytineraries</p>
+            <div className="flex flex-wrap justify-center gap-y-5 p-3 ">
                 {data.slice(counter,counterTo).map((each,index) => <CardPolaroid key={index} src={each.photo} alt={each.alt} text={each.city} />)}
             </div>
             <div className="flex m-3 justify-center">
