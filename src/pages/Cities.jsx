@@ -1,6 +1,4 @@
 import { useState,useEffect,useRef } from "react"
-import axios from "axios"
-import apiUrl from "../apiUrl"
 import CardCity from "../components/CardCity"
 import { useSelector,useDispatch } from "react-redux"
 import city_actions from "../store/actions/cities"
@@ -14,10 +12,6 @@ export default function Cities() {
   console.log(cities);
   useEffect(
     ()=> {
-      // axios(apiUrl+'cities?city='+text.current.value)
-      //   //.then(res=>console.log(res.data.response)) en lugar de mostrarlo en consola lo seteo en una variable de estado
-      //   .then(res=>setCities(res.data.response))//para que se muestre en la vista
-      //   .catch(err=>console.log(err))
       dispatch(read_cities({ text:text.current?.value }))
     },[reEffect]
   )
@@ -29,10 +23,9 @@ export default function Cities() {
 
   return (
     <main className="w-full flex flex-col flex-grow font-rale items-center justify-evenly">
-      <div className="flex flex-col bg-transparent w-full h-[280px] justify-center items-center
-        mt-3 mx-auto text-center gap-2">
-        <h1 className="w-full text-2xl font-bold lg:w-1/2 lg:text-3xl">Cities</h1>
-        <p className="w-full text-xs lg:w-1/2">Collection of the most beautiful places and experience</p>
+      <div className="flex flex-col bg-mountain bg-cover w-full h-[280px] justify-center items-center
+         mx-auto text-center gap-2">
+        <h1 className="w-full text-white uppercase text-2xl font-bold lg:w-1/2 lg:text-3xl">Collection of the most beautiful places and experience</h1>
       </div>
       <div className="w-full flex flex-col justify-center items-center bg-[#EBEBEB]">
         <div className="h-24 flex items-center">
@@ -45,13 +38,13 @@ export default function Cities() {
             </div>
 
             <input ref={text} type="search" name="text" id="text" onKeyUp={handleFilter}
-              class="peer h-full w-full outline-none text-sm text-gray-700 pr-2"
+              class="peer h-full w-full outline-none text-sm text-gray-900 pr-2"
               placeholder="Search your city.." /> 
           </div>
         </div>
         </div>
-        <div className="w-full flex gap-12 flex-grow flex-wrap justify-center">
-          {cities.map(each=><CardCity key={each._id} src={each.photo} alt={each._id} text={each.city} id={each._id} />)}
+        <div className="w-full flex gap-4 lg:gap-12 pb-6 flex-grow flex-wrap justify-center">
+          {cities.map(each=><CardCity key={each._id} src={each.photo} alt={each._id} text={each.city} id={each._id} country={each.country}/>)}
         </div>
       </div>
     </main>

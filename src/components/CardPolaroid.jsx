@@ -1,10 +1,10 @@
 export default function CardPolaroid({ src,alt,text}) {
   return (
-    <div className="lg:w-[270px] mx-2 flex flex-col 
+    <div className="lg:w-[270px] mx-2 flex flex-col font-semibold
     shadow-2xl hover:shadow-inner transition ease-in-out delay-150 
-    bg-blue-500 hover:-translate-y-1 hover:scale-110 hover:bg-indigo-500 duration-300">
-      <p className="text-[14px]">{text}</p>
+    hover:-translate-y-1 hover:scale-110 hover:white duration-300">
       <img src={src} alt={alt} />
+      <p className="text-[14px] px-1">{text}</p>
     </div>
   )
 }

@@ -9,8 +9,9 @@ module.exports = {
   theme: {
       extend: {
         backgroundImage: {
-          'cities':"url('../public/img/bg-cities.jpg')",
-          'mountain':"url('../public/img/mountain2.jpg')"
+          'mountain':"url('../public/img/mountain12.jpg')",
+          'mountain2':"url('../public/img/mountain2.jpg')",
+          'mountain3':"url('../public/img/bg-cities.jpg')"
         },
       },
       fontFamily: {
