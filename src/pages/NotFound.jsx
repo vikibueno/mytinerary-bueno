@@ -1,5 +1,5 @@
 export default function NotFound() {
     return (
-      <div>NOT FOUND PAGE</div>
+      <div className="flex-grow">NOT FOUND PAGE</div>
     )
   }

@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="lg:h-[25px] px-5 w-full bg-black flex justify-between items-center text-white text-[12px]">
+    <footer className="lg:h-[25px] px-5 w-full  flex justify-between items-center  text-[12px] bg-[#00000049]">
       <p>My Tinerary</p>
       <div className="flex justify-between gap-2">
         <svg

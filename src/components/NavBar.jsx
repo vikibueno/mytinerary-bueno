@@ -1,24 +1,41 @@
 import { useState } from "react"
 import { Link as Anchor } from "react-router-dom"
 import Display from "./Display"
+import Label from "./Label"
 
 export default function NavBar() {
   let [show,setShow] = useState(false)
+  let options = [
+    {to: "/", title: "Home"},
+    {to: "/cities", title: "Cities"},
+  ]
+
   return ( 
-    <header className="md:h-14 md:w-4/5 md:mt-4 flex justify-between items-center">
-    <div className="text-[22px] flex justify-between items-center gap-1 font-bold leading-[42.56px] w-[183px] h-[43px]">
-      <div className="w-5 h-5"><img src="./img/profile.png" alt="profile" /></div>
-      <p>My Tinerary</p>
+    <header className="flex font-rale items-center justify-between flex-wrap p-2 bg-[#00000049]">
+      <div className="flex items-center flex-shrink-0 text-white mr-6 gap-2">
+        <div className="w-5 h-5"><img src="/img/profile.png" alt="profile" /></div>
+        <h1 className="font-semibold text-x1 font-rale">My Tinerary</h1>
+      </div>
+      <div className="">
+        <Label options={options}/>
+      </div>
       
-    </div>
-    <nav className="lg:w-[330px] lg:h-[43px] flex gap-[8px] justify-end items-center"> 
-        <div className="lg:w-[69px] lg:h[32px] text-[18px] leading-[31.92px] font-bold"><Anchor to='/'>Home</Anchor></div>
-        <div className="lg:w-[62px] lg:h[32px] text-[18px] leading-[31.92px] font-bold"><Anchor to='cities'>Cities</Anchor></div>
-        <button class="font-bold w-[116px] h-[46px] gap-[6px] rounded-[10px] bg-[#4F46E5] hover:bg-blue-700 text-white text-[18px] leading-[31.92px]">Login</button>
-    </nav> 
-
-    { show && <Display/>}
-
+      <div className="lg:hidden">
+        <button className="relative inline-flex items-center justify-center rounded-md p-2 text-white hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
+          {show ? 
+          (<svg xmlns="http://www.w3.org/2000/svg" onClick={()=>setShow(!show)} fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>) 
+          
+          : 
+          
+          (<svg className="block h-6 w-6" onClick={()=>setShow(!show)} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>)}
+      
+        </button>
+      </div>
+      { show && <Display options={options}/>}
     </header>
   )
 }

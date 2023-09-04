@@ -25,12 +25,15 @@ export default function Carousel({ data }) {
         }
     }
     return (
-        <div className="md:w-2/3 md:h-[250px] flex justify-center items-center">
-            <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={prev_slide} />
-            <div className="md:w-4/5 flex flex-wrap justify-center">
+        <div className="flex flex-col gap-2 backdrop-blur-sm bg-white/30">
+            <p className="text-center font-semibold">Popular Mytineraries</p>
+            <div className="flex flex-wrap justify-center gap-y-5 p-3 ">
                 {data.slice(counter,counterTo).map((each,index) => <CardPolaroid key={index} src={each.photo} alt={each.alt} text={each.city} />)}
             </div>
-            <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5" onClick={next_slide} />
+            <div className="flex m-1 justify-center">
+              <Arrow direction="M15.75 19.5L8.25 12l7.5-7.5" onClick={prev_slide} />
+              <Arrow direction="M8.25 4.5l7.5 7.5-7.5 7.5" onClick={next_slide} />
+            </div>
         </div>
     )
 }

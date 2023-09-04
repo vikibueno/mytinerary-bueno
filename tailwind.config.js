@@ -7,9 +7,16 @@ module.exports = {
       './src/**/*.{js,jsx,ts,tsx}'
   ],
   theme: {
-      extend: {},
+      extend: {
+        backgroundImage: {
+          'mountain':"url('../public/img/mountain12.jpg')",
+          'mountain2':"url('../public/img/mountain2.jpg')",
+          'mountain3':"url('../public/img/bg-cities.jpg')"
+        },
+      },
       fontFamily: {
         'sans': ['Segoe UI', ...defaultTheme.fontFamily.sans],
+        'rale': ['Raleway']
       },
   },
   variants: {},
