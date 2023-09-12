@@ -5,7 +5,7 @@ export default function Footer() {
       <div className="flex justify-between gap-2">
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-3 w-3"
+          className="h-3 w-3"
           fill="currentColor"
           viewBox="0 0 24 24">
         <path
@@ -13,7 +13,7 @@ export default function Footer() {
         </svg>  
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-3 w-3"
+          className="h-3 w-3"
           fill="currentColor"
           viewBox="0 0 24 24">
         <path

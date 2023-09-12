@@ -22,7 +22,8 @@ export default function NavBar() {
         <div className="w-5 h-5"><img src="/img/profile.png" alt="profile" /></div>
         <h1 className="font-semibold text-x1 font-rale">My Tinerary - {mail}</h1>
       </div>
-      <div className="">
+
+      <div>
         {mail && <span onClick={()=>dispatch(signout())}>SIGN OUT</span>}
         <Label options={options}/>
       </div>
@@ -36,8 +37,8 @@ export default function NavBar() {
           
           : 
           
-          (<svg className="block h-6 w-6" onClick={()=>setShow(!show)} fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          (<svg className="block h-6 w-6" onClick={()=>setShow(!show)} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>)}
       
         </button>

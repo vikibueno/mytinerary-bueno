@@ -18,8 +18,8 @@ export default function Home() {
     // const city_reducer = useSelector(store=>store.cities)
     // console.log(city_reducer);
     const carousel = useSelector(store=>store.cities.carousel)
-    console.log(carousel);
     const dispatch = useDispatch()
+    
     useEffect(
         ()=>{
             // axios(apiUrl+'cities/carousel')

@@ -15,7 +15,7 @@ export default function CityDetail() {
         []
     )
     const city = useSelector(store=> store.cities.city)
-    console.log(city);
+    
     return (
         <article className="bg-red-500 flex justify-center items-center flex-grow bg-cover" style={{backgroundImage: `url(${city.photo})`}}>
             <DetailCity src={city.photo} alt={city_id} text={city.city} id={city_id} smalldescription={city.smalldescription} ></DetailCity>

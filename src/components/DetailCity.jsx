@@ -8,7 +8,6 @@ const { read_itineraries_from_city } = itinerary_actions
 export default function DetailCity({ src, alt, text, id, smalldescription }) {
     const [show,setShow] = useState(false)
     const itineraries = useSelector(store=>store.itineraries.itineraries_from_city)
-    console.log(itineraries);
     const dispatch = useDispatch()
     const isItineraryLengthCero = (itineraries.length===0)
 

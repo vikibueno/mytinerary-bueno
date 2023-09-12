@@ -1,10 +1,20 @@
-import React from 'react'
-import { useState } from 'react'
+import { useState,useEffect } from 'react'
+import { useDispatch,useSelector } from "react-redux"
+import activities_actions from '../store/actions/activities'
+const { read_activities_from_itinerary } = activities_actions
+import Activity from './Activity'
 
 export default function Itinerary({data}) {
     const count = 0
     const [show,setShow] = useState(false)
     const [viewMore,setViewMore] = useState(false)
+    const activities = useSelector(store=>store.activities[data._id])
+    const dispatch = useDispatch()
+
+    useEffect(
+        () => {dispatch(read_activities_from_itinerary({itinerary_id:data._id}))}
+        ,[])
+    
     return (
     <div className="lg:w-1/2 p-3 flex flex-col gap-1 p-1 shadow-2xl bg-white border">
         <p className='text-center'>{data.name}</p>
@@ -36,7 +46,7 @@ export default function Itinerary({data}) {
             <div className='flex flex-col gap-4 text-xs'>
                <div className='flex justify-center justify-between p-2'>
                     <div className='w-1/4 flex flex-col items-center gap-1'><p>User:</p><div className='flex flex-col items-center' ><img className='w-10 h-10 rounded-full border' src={data.city_id.admin_id.photo} alt="" /><p className='text-xs'>{data.city_id.admin_id.name}</p><p>{data.city_id.admin_id.lastName}</p></div></div>
-                    {/* <div className='w-1/4 flex flex-col items-center gap-1'><p>Hashtags:</p><p>{data.tags}</p></div> */}
+                    <div className='w-1/4 flex flex-col items-center gap-1'><p>Hashtags:</p>{data.tags.map(each=> <p key={each}>{each}</p> )}</div>
                     <div className='w-1/4 flex flex-col items-center gap-1'><p>Duration</p>{(data.duration / 60).toFixed(2).replace(".00", "")} hs</div>
                     <div className=' w-1/4 flex flex-col items-center gap-1'><p>Price:</p>{data.price}</div>
                </div>
@@ -44,7 +54,11 @@ export default function Itinerary({data}) {
                     <button className='w-1/2 h-6 rounded-[12px] text-center bg-[#00000069]' onClick={()=>setViewMore(!viewMore)}>View more</button>    
                 </div>
                 
-                {viewMore && <div className='flex justify-center' ><p>Under Construction</p></div> }
+                {viewMore && 
+                        <div className='flex justify-center justify-between text-xs gap-1'>
+                            {activities.map(each=><Activity key={each._id} data={each} ></Activity> )}
+                        </div>
+                }
             </div>    
         }
     </div>
