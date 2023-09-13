@@ -15,10 +15,7 @@ export default function NavBar() {
   let dispatch = useDispatch()
   let navigate = useNavigate()
 
-  function handleAlert(event) {
-    event.preventDefault()
-    dispatch(signout());
-    navigate("/");
+  function handleAlert() {
     Swal.fire({
       icon: 'success',
       title: 'Logged out!',
@@ -26,23 +23,24 @@ export default function NavBar() {
   }
 
   let options = [
-    {to: "/", title: "Home"},
-    {to: "/cities", title: "Cities"},
-    // {to: "", title: "Sign out"},
-    {
-      title: "Sign Out",
-      onClick: () => {handleAlert ()}
-                
-        // console.log('hice click');
-        // dispatch(signout());
-        // handleAlert();
-        // navigate("/");
-      ,
+    {to: "/", title: "Home", show:true},
+    {to: "/cities", title: "Cities", show:true},
+
+      {
+        to: "/signin",
+        title: "Log In",
+        show: user.photo ? false : true,
+      },
+      {
+        title: "Sign Out",
+        show: user.photo ? true : false,
+        onClick: () => {
+          dispatch(signout());
+          handleAlert()
+          navigate("/");
+        },
     },
-    {
-      to: "/signin",
-      title: "Log In",
-    },
+
   ]
 
   return ( 
