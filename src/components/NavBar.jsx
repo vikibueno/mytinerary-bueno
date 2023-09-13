@@ -7,24 +7,44 @@ const {signout} = users_actions
 
 export default function NavBar() {
   let [show,setShow] = useState(false)
+  let photo = useSelector(store=>store.users.user?.photo)
+  let mail = useSelector(store=>store.users.user?.mail)
+
   let options = [
     {to: "/", title: "Home"},
     {to: "/cities", title: "Cities"},
-    {to: "", title: "Sign out"},
+    // {to: "", title: "Sign out"},
+    {
+      title: "Sign Out",
+      onClick: () => {
+        dispatch(signout());
+        navigate("/");
+      },
+    },
+    {
+      to: "/signin",
+      title: "Log In",
+      show: mail ? false : true,
+    },
   ]
 
-  let mail = useSelector(store=>store.users.user?.mail)
+  
   let dispatch = useDispatch()
-  console.log(mail);
+  // console.log(mail);
   return ( 
     <header className="flex font-rale items-center justify-between flex-wrap p-2 bg-[#00000049]">
-      <div className="flex items-center flex-shrink-0 text-white mr-6 gap-2">
-        <div className="w-5 h-5"><img src="/img/profile.png" alt="profile" /></div>
-        <h1 className="font-semibold text-x1 font-rale">My Tinerary - {mail}</h1>
+      <div className="flex items-center flex-shrink-0 text-white mr-6 gap-3">
+        <div className="w-10 h-10">
+          
+          {(photo) ? (<img src={photo} className="rounded-full" />):(<img src="/img/profile.png" alt="profile"className="rounded-full" />)}
+          
+        
+        </div>
+        <h1 className="font-semibold text-x1 font-rale">My Tinerary </h1>
       </div>
 
       <div>
-        {mail && <span onClick={()=>dispatch(signout())}>SIGN OUT</span>}
+        {/* {photo && <span onClick={()=>dispatch(signout())}>SIGN OUT</span>} */}
         <Label options={options}/>
       </div>
       

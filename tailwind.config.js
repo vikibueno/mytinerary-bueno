@@ -11,7 +11,9 @@ module.exports = {
         backgroundImage: {
           'mountain':"url('../public/img/mountain12.jpg')",
           'mountain2':"url('../public/img/mountain2.jpg')",
-          'mountain3':"url('../public/img/bg-cities.jpg')"
+          'mountain3':"url('../public/img/bg-cities.jpg')",
+          'signup':"url('../public/img/bg-signup.jpg')",
+          'signin':"url('../public/img/bg-signin.jpg')"
         },
       },
       fontFamily: {
