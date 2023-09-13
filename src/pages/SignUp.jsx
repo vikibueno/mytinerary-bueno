@@ -1,10 +1,11 @@
 import { useRef,useEffect, useState } from "react";
 import axios from "axios";
 import apiUrl from "../apiUrl";
-import { Link as Anchor } from "react-router-dom";
+import { Link as Anchor, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import users_actions from "../store/actions/users";
-const { read_6_users } = users_actions
+const { read_6_users,signup } = users_actions
+import Swal from "sweetalert2";
 import Users from "../components/Users"
 
 export default function SignUp() {
@@ -17,13 +18,15 @@ export default function SignUp() {
     const password = useRef()
     const [reload,setReload] = useState(false)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     useEffect(
         ()=>{dispatch(read_6_users())},
         [reload]
     )
 
-    async function handleSignUp() {
+    async function handleSignUp(event) {
+        event.preventDefault()
         try {
             let data = {
                 name: name.current.value,
@@ -34,10 +37,24 @@ export default function SignUp() {
                 password: password.current.value
     
             }
-            await axios.post(
-                apiUrl+'users/signup', 
-                data
-            )
+            dispatch(signup({newUser:data}))
+            .then(res=> {
+                console.log(res);
+                if (res.payload.newUser) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'User regitered!',
+                      })
+                    navigate('/')
+                } else if (res.payload.messages.length>0) {
+                    Swal.fire({
+                        title: 'Something went wrong!',
+                        icon: 'error',
+                        html: res.payload.messages.map(each=>`<p>${each}</p>`).join('')
+                      })
+                }
+                
+            })
             console.log(data);
             setReload(!reload)
         } catch (error) { 

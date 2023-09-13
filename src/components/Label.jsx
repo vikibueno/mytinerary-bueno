@@ -6,7 +6,7 @@ export default function Label({ options }) {
     lg:flex lg:items-center lg:w-auto hidden"> 
         {options.map(each=><Anchor 
         className=" hover:opacity-75 text-white font-semibold hover:text-white py-2 px-4"
-        key={each.to} to={each.to}>
+        key={each.to} to={each.to} onClick={each.onClick}>
           {each.title}</Anchor>)}
         {/* <button className="bg-transparent flex gap-1 hover:opacity-75
         text-white font-semibold hover:text-white py-2 px-4 

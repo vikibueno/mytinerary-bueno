@@ -4,11 +4,26 @@ import Label from "./Label"
 import { useSelector,useDispatch } from "react-redux"
 import users_actions from "../store/actions/users"
 const {signout} = users_actions
+import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom"
 
 export default function NavBar() {
   let [show,setShow] = useState(false)
-  let photo = useSelector(store=>store.users.user?.photo)
-  let mail = useSelector(store=>store.users.user?.mail)
+  let user = useSelector(store=>store.users.user)
+  let store = useSelector(store=>store)
+  console.log(store,'STORE');
+  let dispatch = useDispatch()
+  let navigate = useNavigate()
+
+  function handleAlert(event) {
+    event.preventDefault()
+    dispatch(signout());
+    navigate("/");
+    Swal.fire({
+      icon: 'success',
+      title: 'Logged out!',
+    })
+  }
 
   let options = [
     {to: "/", title: "Home"},
@@ -16,29 +31,25 @@ export default function NavBar() {
     // {to: "", title: "Sign out"},
     {
       title: "Sign Out",
-      onClick: () => {
-        dispatch(signout());
-        navigate("/");
-      },
+      onClick: () => {handleAlert ()}
+                
+        // console.log('hice click');
+        // dispatch(signout());
+        // handleAlert();
+        // navigate("/");
+      ,
     },
     {
       to: "/signin",
       title: "Log In",
-      show: mail ? false : true,
     },
   ]
 
-  
-  let dispatch = useDispatch()
-  // console.log(mail);
   return ( 
     <header className="flex font-rale items-center justify-between flex-wrap p-2 bg-[#00000049]">
       <div className="flex items-center flex-shrink-0 text-white mr-6 gap-3">
         <div className="w-10 h-10">
-          
-          {(photo) ? (<img src={photo} className="rounded-full" />):(<img src="/img/profile.png" alt="profile"className="rounded-full" />)}
-          
-        
+          {(user.photo) ? (<img src={user.photo} className="rounded-full" />):(<img src="/img/profile.png" alt="profile"className="rounded-full" />)}
         </div>
         <h1 className="font-semibold text-x1 font-rale">My Tinerary </h1>
       </div>
@@ -60,7 +71,6 @@ export default function NavBar() {
           (<svg className="block h-6 w-6" onClick={()=>setShow(!show)} fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" aria-hidden="true">
             <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
           </svg>)}
-      
         </button>
       </div>
       { show && <Display options={options}/>}
