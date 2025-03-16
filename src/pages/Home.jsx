@@ -34,7 +34,7 @@ export default function Home() {
     )
     
     return (
-      <main className="w-full flex flex-col gap-12 flex-grow font-rale justify-evenly bg-mountain2 bg-cover">
+      <main className="w-full flex flex-col gap-12 flex-grow font-rale justify-evenly">
         <div className="w-5/6 flex flex-col mt-3 mx-auto justify-evenly p-1 gap-2"> 
             <h1 className="w-full uppercase text-2xl font-bold lg:w-1/2 lg:text-3xl">{`${titleMain}`}</h1>
             <p className="w-full font-semibold text-xs lg:w-1/2 ">

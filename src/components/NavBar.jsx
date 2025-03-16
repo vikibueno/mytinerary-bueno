@@ -44,7 +44,7 @@ export default function NavBar() {
   ]
 
   return ( 
-    <header className="flex font-rale items-center justify-between flex-wrap p-2 bg-[#00000049]">
+    <header className="flex font-rale items-center justify-between flex-wrap p-2">
       <div className="flex items-center flex-shrink-0 text-white mr-6 gap-3">
         <div className="w-10 h-10">
           {(user.photo) ? (<img src={user.photo} className="rounded-full" />):(<img src="/img/profile.png" alt="profile"className="rounded-full" />)}

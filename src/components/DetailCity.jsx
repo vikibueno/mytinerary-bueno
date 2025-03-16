@@ -17,7 +17,7 @@ export default function DetailCity({ src, alt, text, id, smalldescription }) {
     )
 
     return (
-        <div className="flex flex-col font-rale font-semibold justify-center items-center flex-grow ">
+        <div className="h-dvh flex flex-col font-rale font-semibold justify-center items-center flex-grow ">
             <Anchor to={'/city/'+id} className="flex flex-col h-screen w-screen justify-center items-center backdrop-blur-md bg-cover" style={{backgroundImage: `url(${src})`}}>
                 <div className="backdrop-blur-md bg-white/30 items-center flex flex-col w-full max-w-5xl">
 
